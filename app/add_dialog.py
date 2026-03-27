@@ -40,7 +40,7 @@ class AddItemDialog(QDialog):
         layout.addSpacing(8)
 
         # Purchase price
-        lbl_price = QLabel("PURCHASE PRICE (USD)")
+        lbl_price = QLabel("BOUGHT FOR (USD)")
         lbl_price.setObjectName("sectionLabel")
         layout.addWidget(lbl_price)
 

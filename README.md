@@ -29,7 +29,9 @@ A desktop app to track Steam Community Market item prices. Monitors price histor
 Click the **✕** button on any row → confirm in the dialog.
 
 **Setting purchase price later**
-Click the **Set price** link in the PAID column if you skipped it when adding.
+Click the **Set price** link in the BOUGHT FOR column if you skipped it when adding.
+
+![Preview](screenshots/preview.png)
 
 ---
 

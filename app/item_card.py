@@ -7,31 +7,6 @@ from PySide6.QtCore import Qt, Signal, QTimer, QRect
 from .price_graph import PriceGraph
 
 
-def _price_color(diff: float) -> str:
-    def lerp(a, b, t):
-        return int(a + (b - a) * t)
-
-    white = (232, 232, 232)
-    green = (76, 175, 80)
-    red   = (244, 91, 91)
-
-    if diff >= 1.0:
-        r, g, b = green
-    elif diff <= -1.0:
-        r, g, b = red
-    elif diff >= 0:
-        t = diff
-        r = lerp(white[0], green[0], t)
-        g = lerp(white[1], green[1], t)
-        b = lerp(white[2], green[2], t)
-    else:
-        t = -diff
-        r = lerp(white[0], red[0], t)
-        g = lerp(white[1], red[1], t)
-        b = lerp(white[2], red[2], t)
-
-    return f"#{r:02x}{g:02x}{b:02x}"
-
 
 class Spinner(QWidget):
     def __init__(self, parent=None):
@@ -169,10 +144,12 @@ class ItemCard(QWidget):
             self._purchase_label.setStyleSheet("color: #5b8af4; text-decoration: underline;")
 
         if item.current_price is not None:
-            color = "#e8e8e8"
-            if item.purchase_price is not None:
-                diff = item.current_price - item.purchase_price
-                color = _price_color(diff)
+            if item.purchase_price is None:
+                color = "#e8e8e8"
+            elif item.current_price >= item.purchase_price:
+                color = "#4caf50"
+            else:
+                color = "#f45b5b"
             self._current_label.setText(f"${item.current_price:.2f} USD")
             self._current_label.setStyleSheet(f"color: {color}; font-weight: 600;")
         else:
