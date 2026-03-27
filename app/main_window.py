@@ -10,7 +10,7 @@ from PySide6.QtGui import QPixmap, QColor
 from . import steam_api
 from .models import Item, load_items, save_items, make_item_id
 from .fetcher import AddItemWorker, ImageLoader, PriceFetcher, seconds_until_next_hour
-from .item_card import ItemCard
+from .item_card import ItemCard, Spinner
 from .add_dialog import AddItemDialog
 
 
@@ -57,9 +57,23 @@ class MainWindow(QMainWindow):
         tbl.setSpacing(12)
         tbl.setAlignment(Qt.AlignmentFlag.AlignVCenter)
 
-        left_bal = QWidget()
-        left_bal.setFixedWidth(230)
-        tbl.addWidget(left_bal)
+        status_widget = QWidget()
+        status_widget.setFixedWidth(230)
+        sl = QHBoxLayout(status_widget)
+        sl.setContentsMargins(0, 0, 0, 0)
+        sl.setSpacing(6)
+        sl.setAlignment(Qt.AlignmentFlag.AlignVCenter | Qt.AlignmentFlag.AlignLeft)
+
+        self._status_spinner = Spinner()
+        self._status_spinner.setFixedSize(20, 20)
+        self._status_spinner.hide()
+        sl.addWidget(self._status_spinner)
+
+        self._status_label = QLabel()
+        self._status_label.setObjectName("statusLabel")
+        sl.addWidget(self._status_label)
+
+        tbl.addWidget(status_widget)
 
         tbl.addStretch()
 
@@ -98,7 +112,7 @@ class MainWindow(QMainWindow):
         lbl_item.setFixedWidth(190)
         ch.addWidget(lbl_item)
 
-        lbl_paid = QLabel("PAID")
+        lbl_paid = QLabel("BOUGHT FOR")
         lbl_paid.setObjectName("sectionLabel")
         lbl_paid.setFixedWidth(130)
         lbl_paid.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -295,7 +309,7 @@ class MainWindow(QMainWindow):
     def _on_all_fetched(self):
         for card in self._cards.values():
             card.set_loading(False)
-        self._set_status(f"Updated at {datetime.now().strftime('%H:%M')}")
+        self._set_status(f"Last fetched {datetime.now().strftime('%H:%M')}")
 
     def _on_price_updated(self, item_id, price, price_history, image_url):
         now = datetime.now().isoformat(timespec="seconds")
@@ -346,5 +360,13 @@ class MainWindow(QMainWindow):
         color = QColor.fromHsvF(self._hue, 0.85, 1.0)
         self._credit.setStyleSheet(f"color: {color.name()}; font-weight: 600; font-size: 11px;")
 
-    def _set_status(self, *_):
-        pass
+    def _set_status(self, text: str):
+        loading = text.endswith("…")
+        if loading:
+            self._status_spinner.show()
+            self._status_spinner.start()
+            self._status_label.setText("Fetching…")
+        else:
+            self._status_spinner.stop()
+            self._status_spinner.hide()
+            self._status_label.setText("" if text == "Ready" else text)
