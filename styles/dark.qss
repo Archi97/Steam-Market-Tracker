@@ -1,0 +1,245 @@
+* {
+    font-family: "Segoe UI", "Inter", sans-serif;
+    font-size: 13px;
+    color: #e8e8e8;
+    outline: none;
+}
+
+QMainWindow {
+    background: #141414;
+}
+
+QWidget#centralWidget,
+QWidget#listWidget {
+    background: #141414;
+}
+
+QWidget#columnHeader {
+    background: #1c1c1c;
+}
+
+QScrollArea#scrollArea {
+    background: #141414;
+    border: none;
+}
+
+QScrollArea#scrollArea > QWidget {
+    background: #141414;
+}
+
+QWidget#toolbar {
+    background: #1c1c1c;
+}
+
+QWidget#separator {
+    background: #2a2a2a;
+}
+
+/* ── Labels ── */
+
+QLabel#appTitle {
+    font-size: 15px;
+    font-weight: 600;
+    color: #e8e8e8;
+}
+
+QLabel#statusLabel {
+    color: #666666;
+    font-size: 12px;
+}
+
+QLabel#emptyLabel {
+    color: #666666;
+    font-size: 14px;
+}
+
+QLabel#sectionLabel {
+    color: #aaaaaa;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+QLabel#hintLabel {
+    color: #666666;
+    font-size: 11px;
+}
+
+/* ── Item Row ── */
+
+QWidget#itemRow {
+    background: #1a1a1a;
+}
+
+QWidget#itemRow:hover {
+    background: #1f1f1f;
+}
+
+QLabel#itemName {
+    color: #e8e8e8;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+QLabel#itemImage {
+    background: #111111;
+    border: 1px solid #2a2a2a;
+    border-radius: 4px;
+    color: #444444;
+    font-size: 16px;
+}
+
+QWidget#priceGraph {
+    background: #111111;
+    border: 1px solid #2a2a2a;
+    border-radius: 4px;
+}
+
+/* ── Buttons ── */
+
+QPushButton#btnPrimary {
+    background: #5b8af4;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 22px;
+}
+
+QPushButton#btnPrimary:hover {
+    background: #6f9cf6;
+}
+
+QPushButton#btnPrimary:pressed {
+    background: #4a7ae3;
+}
+
+QPushButton#btnGhost {
+    background: transparent;
+    color: #aaaaaa;
+    border: 1px solid #333333;
+    border-radius: 6px;
+    padding: 8px 18px;
+}
+
+QPushButton#btnGhost:hover {
+    background: #222222;
+    color: #e8e8e8;
+}
+
+QPushButton#btnDanger {
+    background: transparent;
+    color: #f45b5b;
+    border: 1px solid #f45b5b;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 0px;
+}
+
+QPushButton#btnDanger:hover {
+    background: rgba(244, 91, 91, 0.15);
+}
+
+/* ── Inputs ── */
+
+QLineEdit,
+QDoubleSpinBox {
+    background: #222222;
+    border: 1px solid #333333;
+    border-radius: 6px;
+    padding: 8px 10px;
+    color: #e8e8e8;
+    selection-background-color: #5b8af4;
+}
+
+QLineEdit:focus,
+QDoubleSpinBox:focus {
+    border-color: #5b8af4;
+}
+
+QDoubleSpinBox::up-button,
+QDoubleSpinBox::down-button {
+    background: #2a2a2a;
+    border: none;
+    width: 18px;
+}
+
+QDoubleSpinBox::up-button:hover,
+QDoubleSpinBox::down-button:hover {
+    background: #333333;
+}
+
+/* ── Dialogs ── */
+
+QDialog {
+    background: #1a1a1a;
+}
+
+/* ── Scrollbar ── */
+
+QScrollBar:vertical {
+    background: #1a1a1a;
+    width: 4px;
+    margin: 0;
+    border: none;
+}
+
+QScrollBar::handle:vertical {
+    background: #5b8af4;
+    border-radius: 2px;
+    min-height: 20px;
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    height: 0;
+}
+
+QScrollBar:horizontal {
+    background: #1a1a1a;
+    height: 4px;
+    margin: 0;
+    border: none;
+}
+
+QScrollBar::handle:horizontal {
+    background: #5b8af4;
+    border-radius: 2px;
+    min-width: 20px;
+}
+
+QScrollBar::add-line:horizontal,
+QScrollBar::sub-line:horizontal {
+    width: 0;
+}
+
+/* ── Message boxes ── */
+
+QMessageBox {
+    background: #1a1a1a;
+}
+
+QMessageBox QPushButton {
+    min-width: 80px;
+    padding: 6px 16px;
+    background: #222222;
+    border: 1px solid #333333;
+    border-radius: 6px;
+    color: #e8e8e8;
+}
+
+QMessageBox QPushButton:hover {
+    background: #2a2a2a;
+}
+
+/* ── Tooltips ── */
+
+QToolTip {
+    background: #2a2a2a;
+    color: #e8e8e8;
+    border: 1px solid #333333;
+    border-radius: 5px;
+    padding: 4px 8px;
+}

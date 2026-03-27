@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Environments
+.env
+.venv
+env/
+venv/
+
+# PyInstaller
+*.manifest
+
+# Logs & debug
+*.log
+crash_log.txt
+page_dump.html
+
+# App runtime data
+data/
+cache/
+
+# Type checkers / linters
+.mypy_cache/
+.ruff_cache/
+
+# IDE
+.idea/
+.vscode/
+
+# Claude Code
+.claude/
