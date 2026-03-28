@@ -4,6 +4,10 @@ A desktop app to track Steam Community Market item prices. Monitors price histor
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue) ![PySide6](https://img.shields.io/badge/PySide6-6.6+-green)
 
+
+If you find it useful, a ⭐ star or a coffee would mean a lot!
+
+<a href="https://www.buymeacoffee.com/tyombo"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" height="40"/></a>
 ---
 
 ## Features
