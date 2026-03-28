@@ -1,11 +1,15 @@
 import json
 import os
+import sys
 import hashlib
 from dataclasses import dataclass, asdict, field
 from typing import Optional
 from datetime import datetime
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if getattr(sys, 'frozen', False):
+    BASE_DIR = os.path.join(os.getenv('APPDATA'), 'Steam Market Tracker')
+else:
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_FILE = os.path.join(BASE_DIR, "data", "items.json")
 
 
