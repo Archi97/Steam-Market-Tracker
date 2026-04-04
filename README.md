@@ -1,4 +1,5 @@
 # Steam Market Tracker
+## [Download](https://github.com/Archi97/Steam-Market-Tracker/releases/tag/v1.0)
 
 A desktop app to track Steam Community Market item prices. Monitors price history, shows profit/loss vs your purchase price, and auto-refreshes every hour.
 
